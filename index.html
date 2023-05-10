@@ -1,0 +1,314 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js"></script>
+<link rel="shortcut icon" href="https://64.media.tumblr.com/bd0f32d08251c84a148ac31bd9582d64/408b2d36fe8fb6b1-08/s75x75_c1/7803767bf960cbaba77512dbd9d96205222e40a4.gifv">
+<title>EP1000 project site ♡</title>
+
+
+
+
+<script type="text/javascript">
+    // <![CDATA[
+    var colours=new Array('#b0dbff', '#fac3ff', '#bebebe'); 
+    var minisize=15; 
+    var maxisize=20;
+    var hearts=66; 
+    var over_or_under="over"; 
+    
+    var x=ox=400;
+    var y=oy=300;
+    var swide=800;
+    var shigh=600;
+    var sleft=sdown=0;
+    var herz=new Array();
+    var herzx=new Array();
+    var herzy=new Array();
+    var herzs=new Array();
+    var kiss=false;
+    
+    if (typeof('addRVLoadEvent')!='function') function addRVLoadEvent(funky) {
+      var oldonload=window.onload;
+      if (typeof(oldonload)!='function') window.onload=funky;
+      else window.onload=function() {
+        if (oldonload) oldonload();
+        funky();
+      }
+    }
+    
+    addRVLoadEvent(mwah);
+    
+    function mwah() { if (document.getElementById) {
+      var i, heart;
+      for (i=0; i<hearts; i++) {
+        heart=createDiv("auto", "auto");
+        heart.style.visibility="hidden";
+        heart.style.zIndex=(over_or_under=="over")?"1001":"0";
+        heart.style.color=colours[i%colours.length];
+        heart.style.pointerEvents="none";
+        if (navigator.appName=="Microsoft Internet Explorer") heart.style.filter="alpha(opacity=75)";
+        else heart.style.opacity=0.75;
+        heart.appendChild(document.createTextNode(String.fromCharCode(9733)));
+        document.body.appendChild(heart);
+        herz[i]=heart;
+        herzy[i]=false;
+      }
+      set_scroll();
+      set_width();
+      herzle();
+    }}
+    
+    function herzle() {
+      var c;
+      if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
+        ox=x;
+        oy=y;
+        for (c=0; c<hearts; c++) if (herzy[c]===false) {
+          herz[c].firstChild.nodeValue=String.fromCharCode(9733);
+          herz[c].style.left=(herzx[c]=x-minisize/2)+"px";
+          herz[c].style.top=(herzy[c]=y-minisize)+"px";
+          herz[c].style.fontSize=minisize+"px";
+          herz[c].style.fontWeight='normal';
+          herz[c].style.visibility='visible';
+          herzs[c]=minisize;
+          break;
+        }
+      }
+      for (c=0; c<hearts; c++) if (herzy[c]!==false) blow_me_a_kiss(c);
+      setTimeout("herzle()", 40);
+    }
+    
+    document.onmousedown=pucker;
+    document.onmouseup=function(){clearTimeout(kiss);};
+    
+    function pucker() {
+      ox=-1;
+      oy=-1;
+      kiss=setTimeout('pucker()', 100);
+    }
+    
+    function blow_me_a_kiss(i) {
+      herzy[i]-=herzs[i]/minisize+i%2;
+      herzx[i]+=(i%5-2)/5;
+      if (herzy[i]<sdown-herzs[i] || herzx[i]<sleft-herzs[i] || herzx[i]>sleft+swide-herzs[i]) {
+        herz[i].style.visibility="hidden";
+        herzy[i]=false;
+      }
+      else if (herzs[i]>minisize+2 && Math.random()<.5/hearts) break_my_heart(i);
+      else {
+        if (Math.random()<maxisize/herzy[i] && herzs[i]<maxisize) herz[i].style.fontSize=(++herzs[i])+"px";
+        herz[i].style.top=herzy[i]+"px";
+        herz[i].style.left=herzx[i]+"px";
+      }
+    }
+    
+    function break_my_heart(i) {
+      var t;
+      herz[i].firstChild.nodeValue=String.fromCharCode(9676);
+      herz[i].style.fontWeight='bold';
+      herzy[i]=false;
+      for (t=herzs[i]; t<=maxisize; t++) setTimeout('herz['+i+'].style.fontSize="'+t+'px"', 60*(t-herzs[i]));
+      setTimeout('herz['+i+'].style.visibility="hidden";', 60*(t-herzs[i]));
+    }
+    
+    document.onmousemove=mouse;
+    function mouse(e) {
+      if (e) {
+        y=e.pageY;
+        x=e.pageX;
+      }
+      else {
+        set_scroll();
+        y=event.y+sdown;
+        x=event.x+sleft;
+      }
+    }
+    
+    window.onresize=set_width;
+    function set_width() {
+      var sw_min=999999;
+      var sh_min=999999;
+      if (document.documentElement && document.documentElement.clientWidth) {
+        if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+        if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+      }
+      if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+        if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+        if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+      }
+      if (document.body.clientWidth) {
+        if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+        if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+      }
+      if (sw_min==999999 || sh_min==999999) {
+        sw_min=800;
+        sh_min=600;
+      }
+      swide=sw_min;
+      shigh=sh_min;
+    }
+    
+    window.onscroll=set_scroll;
+    function set_scroll() {
+      if (typeof(self.pageYOffset)=='number') {
+        sdown=self.pageYOffset;
+        sleft=self.pageXOffset;
+      }
+      else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+        sdown=document.body.scrollTop;
+        sleft=document.body.scrollLeft;
+      }
+      else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+        sleft=document.documentElement.scrollLeft;
+        sdown=document.documentElement.scrollTop;
+      }
+      else {
+        sdown=0;
+        sleft=0;
+      }
+    }
+    
+    function createDiv(height, width) {
+      var div=document.createElement("div");
+      div.style.position="absolute";
+      div.style.height=height;
+      div.style.width=width;
+      div.style.overflow="hidden";
+      div.style.backgroundColor="transparent";
+      return (div);
+    }
+    // ]]>
+    </script>
+    
+
+<style type="text/css">
+
+body{
+    font-family:ms gothic;
+    background-image:url('https://roguefortcookie.neocities.org/R%20(3).gif');
+}
+
+#container{
+    padding:5px;
+    height:530px;
+    width:915px;
+    margin-top:15px;
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#section-1{
+    position:fixed;
+    width:150px;
+    float:left;
+    left:5px;
+    text-align:center;
+}
+#section-2{
+    position:fixed;
+    width:525px;
+    float:left;
+    margin-top:10px;
+    left:200px;
+    text-align:center;
+}
+#section-3{
+    position:fixed;
+    width:190px;
+    float:right;
+    background:white;
+    right:-30px;
+    height:510px;
+    text-align:center;
+    
+}   
+#news-text-inner{    
+    padding:5px;        
+    height:230px;
+    overflow-y:auto;
+}
+#pagedoll{
+position:fixed;
+right:0px;
+bottom:0px;}
+
+{CustomCss}
+
+
+</style>
+
+</head>
+    <body>
+        <div id="container">
+            <div id="section-1">
+                <div style="padding:23px;background:#c9b1ff;"><a href="aboutme.html">About Me</a></div> 
+                <div style="padding:23px;background:#ffcaf2"><a href="websitesketch.html">Website Sketch</a></div>          
+                <div style="padding:23px;background:#ffb2b1"><a href="project-documentation.html">How to develop documentation for a project?</a></div>
+                <div style="padding:23px;background:#fff3ad"><a href="/">How to use git to maintain the site?</a></div>  
+                <div style="padding:23px;background:#bcffbc"><a href="/">Projects</a></div>
+                <div style="padding:23px;background:#a2edff"><a href="/">Final Project</a></div>             
+            </div>
+            <!-- - - - - - - - - - - -->
+            <div id="section-2">
+                <div id="heading" style="background:white;box-shadow: 0px 0px 10px 10px white;">
+                    <table style="width:525px;">
+                    <tbody>
+                        <tr>
+                            <td style="width:300px;">
+                                <div style="text-align:center;height:180px;padding:5px;overflow-y:auto;">
+                                    <P> <img src="https://64.media.tumblr.com/1805b69fb477adc2e57456c863f14d8b/4c08a807803c33e3-3b/s250x400/772db5d01c19492fbfb72adabebb2a70bf7d6e48.gifv"style="max-width:70%"></P>
+                                    <p><h4>Welcome to Gabrielle's</br>EP1000 Project Site <img src="https://64.media.tumblr.com/8aba28e0387966ff8981b814674552c4/7b4fee9543a06f47-ca/s75x75_c1/7ac7aab70cb1b97531fc264b095363c9f51f823f.gifv" style="max-width:100%"></p></h4>
+                                    <p>This is the documentation of my learning progress through FABLab.</br>✩I hope you enjoy my website!✩</p>
+                                </div>
+                            </td>
+                            <td>
+                                <br><img src="https://64.media.tumblr.com/d7d7114f8b2423b10139b6c9ffbb38b9/e7be42ee6dc948e1-3a/s1280x1920/efb6961cbfee782013538ff9d7715b3e856c402b.jpg" style="border:1px solid black;width:200px;border-radius:20px;">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="news-contain" style="margin-top:20px;margin-left:-20px;">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                    <iframe style="height:260px;border:none;width:215px;" src="https://figgypudding.neocities.org/blogendar/blogendar-4" ></iframe> 
+                    </td> 
+                    <td>
+                            <table style="width:325px;">
+                                <tbody>
+                                    <tr>
+                                        <td height="160px;">
+                                            <div id="news-text-inner"  style="margin-top:-15px;height:215px;border:5px ridge white;background:white;text-align:left;"> 
+                                                <img src="https://64.media.tumblr.com/0856bce066ad84ea962bcbd7908967b7/7cce923a06618070-a4/s500x750/1b516cbd6452b8e7bb3d52cc9ef5ea841deecd85.gifv" style="max-width:90%">
+                                                    </br><h5>This is the first website that I fully coded on my own! (yay!!)
+                                                    <p> I was inspired by the aesthetic of early 2000s websites, and wanted to capture that playful and experimental style that I felt represented me well.</p>
+                                                    <p>I found myself scouring the internet at late hours trying to gain inspiration and advice from users of the old web, and reached this as my final product.</p>
+                                                    <p>I have gained a newfound respect and love for this lost part of the internet, and I hope to remordenise it through integrating it's iconic elements in my site (ෆ˙ᵕ˙ෆ)♡</p></h5>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table> 
+        <div style="width:532px;margin-top:-5px;margin-left:10px;position:fixed;text-align:center;">.</div>
+        <p><img src="https://64.media.tumblr.com/d671b5b4fb0b7b12fe9dc20651057de8/ddb75fe1265919cb-a1/s250x400/7088d7f05692c0f6f2d568b821fee6347e07c1de.gifv" style="max-width:100%">
+    </div>
+        </div>    
+            <!-- - - - - - - - - - - -->
+            <div id="section-3">
+                <p><h3>Exercises <img src="https://64.media.tumblr.com/27898791ee2b089e55680f02b14db55a/7b4fee9543a06f47-ff/s75x75_c1/d5974a562197caece8384842756d9983506b0187.gifv" style="max-width:80%"></h3></p>
+                <P><a href="/"><img src="https://64.media.tumblr.com/d4552113aea9c6deb5370de7d692b869/5f1c6254f8e456fe-3b/s400x600/f09f866875772cee51b5891cbc38da9651600540.gifv" style="max-width:90%"></a></p>
+                <P><a href="/"><img src="https://64.media.tumblr.com/80893c0ac008801bba9a5571237e457e/41695338d5eaac12-26/s400x600/ab5d31070dd9e8e63d452f45f3b47d97b49b2f39.gifv" style="max-width:90%"></a></p>
+                <P><a href="/"><img src="https://64.media.tumblr.com/642006e4d57333668eacc9b8b69ce5da/41695338d5eaac12-5f/s400x600/1ba221dd33e9f2865780380924a1b020feeaf47b.gifv" style="max-width:90%"></a></p>
+                <P><a href="/"><img src="https://64.media.tumblr.com/ce19614ca537c88501dfdf5efe81749f/41695338d5eaac12-90/s400x600/e50c558796301205637aeee015d315adb344343f.gifv" style="max-width:90%"></a></p>
+            </div>
+        </div>
+    </body>
+    <div id="pagedoll">
+        <img src="https://64.media.tumblr.com/06259efe06a14201faf9b6d0124ead7c/61d7ddb5387ebced-0a/s2048x3072/4641fe3944eb24e129fa80eef57c4200f5027c27.gif" width="200">
+        </div>
+</html>
