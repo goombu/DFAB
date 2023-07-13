@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="https://64.media.tumblr.com/6aa92f0c0b2b7bc1e64723d4d6b13558/76c6d7f7f9c8cfe3-9a/s75x75_c1/a72baeb9fd487a011090e1a662c825d4e60e5df7.gifv">
+
+<style type="text/css">
+body{        
+    background-image:url('https://shenanigans.neocities.org/files/snowflake_bg.png');
+    font-family:ms gothic;
+    font-size:18px;
+}    
+a{
+    color:blue;
+}
+
+#container{
+    width:1000px;
+    margin:15px 0 15px 0;
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}   
+
+#header{
+    height:175px;
+    border:1px solid blue;
+    margin:0 0 10px 0;
+    
+}
+
+#header_img{
+    width:100%;
+    height:100%;
+    object-fit: fill;
+    background-position: 50% 30%; 
+    background-image:url('https://i.pinimg.com/564x/48/c7/f9/48c7f9742ede3b6014bfb5c023d620c2.jpg');
+}    
+
+#links{
+    border:1px solid blue;
+    margin:0 0 10px 0;
+    text-align:center;
+    background:white;
+    padding:5px;
+}
+
+#content{
+    border:1px solid blue;
+    background:white;
+    padding:10px;
+    margin:0 0 10px 0;
+}
+
+
+{CustomCss}
+
+</style>
+</head>
+<body>
+    <div id="container">
+        
+        <div id="header">
+            <div id="header_img">
+            </div>
+        </div>
+
+        <div id="links">
+            <a href="index.html">˚*୨୧ Back Home ୨୧*˚</a>
+        </div> 
+
+            <div id="content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <div style="padding:5px;width:100%;margin:0 0 15px 0;text-align:center;background:#f1fff5;color:#59b38c;">
+                                &#12302; ☆ Assignment: TinkerCad Programming ☆ &#12303;
+                            </td>
+                            <td>
+                                <p>
+                                    <h1>Task 1:</h1>
+                                    <mark style="background-color: rgb(237, 255, 235); color: black;"> Connect a LED with a current limiting resistor (220 ohm) to port 6 of the Arduino Uno board.
+                                    Write a program to blink the LED in a variety of patterns, i.e. Blink 1 time, delay(Milliseconds) then Blink 2 times, etc.</mark>
+                                </p>
+                                <ol>
+                                  <li>Click on "Create New Circuit" to start a new project.</li>
+                                  <li>In the Components panel on the right side, search for "Arduino Uno" and drag it onto the work area.</li>
+                                  <li>Search for "LED" and drag it onto the work area.</li>
+                                </ol>
+                                
+                                <p>Connect the components as follows:</p>
+                                
+                                <ol>
+                                  <li>Connect the anode (longer leg) of the LED to digital pin 6 on the Arduino Uno.</li>
+                                  <li>Connect the cathode (shorter leg) of the LED to the ground (GND) pin on the Arduino Uno.</li>
+                                  <li>Place a 220-ohm resistor in series with the LED, connecting one leg to the LED's cathode and the other leg to GND.</li>
+                                </ol>
+                                <p>Your set up should look like this:</p>
+                                <center><p><img src="https://64.media.tumblr.com/096565c4a6ec83b762e37832f844f34e/126e0658b06a34f7-6f/s540x810/c38e51e35b7eb7b8d2937ca60c279b48037b9411.pnj" style="max-width:40%"></li></center></p>
+                                <p>You can then access the "code" tab and input this code for the sequence to work. </br> The diagram below shoewcases the code and how each component of it works:</p>
+                                <center><p><img src="https://64.media.tumblr.com/9897301835930da0f69a2059fe4d5a01/126e0658b06a34f7-47/s540x810/9d520dd77a09b6286afa147cc3d1f0c3c89da9f7.pnj" style="max-width:100%"></li></center></p>
+                               <p>This is how the task should look if carried out correctly:</p>
+                                <div style="max-width: 70%; margin: 0 auto;">
+                                <center><video controls style="width: 65%;">
+                                      <source src="https://va.media.tumblr.com/tumblr_rxm4qukG351a4tpxp.mp4" type="video/mp4">
+                                    </video></center>  
+                                  </div>
+                                  <center><p>Here is the link to the TinkerCad file so you can check it out!
+                                  <P><a href="https://www.tinkercad.com/things/bXN2Dxsxb3j?sharecode=MvjxxGloky1INBmz4pp-40zKQKsFqGt4JIiWYFF-zQU"><img src="https://64.media.tumblr.com/4f65412bda70caaa8884a675b14faa3f/1ad70df19342c412-30/s500x750/7d0b1beb147be7a79b008beaa82af307875ca4a4.gifv" style="max-width:40%"></a></p></center>
+                                <p>
+                                    <h1>Task 2:</h1>
+                                    <mark style="background-color: rgb(237, 255, 235); color: black;">Using the same technique, connect 3 LEDs of different colours to the Arduino board using pins 6, 7, and 8.
+                                    Write a program to produce running lights, i.e. the LEDs are lit in sequence e.g. R -> G -> B -> R -> G -> B and so on.
+                                </p></mark>
+                                                                
+                                <p>Connect the components as follows:</p>
+                                
+                                <ol>
+                                  <li>Connect the anode (longer leg) of the LED to digital pin 6 on the Arduino Uno.</li>
+                                  <li>Connect the cathode (shorter leg) of the LED to the ground (GND) pin on the Arduino Uno.</li>
+                                  <li>Remember to add 220 Ohm Resistors between the LED cathodes and the GND pin like we did in Task 1. This ensures that the current does not go beyond the recommended 20.0 mA, as it will reduce the usable lifetime of the LED.</li>
+                                  <li>Place a 220-ohm resistor in series with the LED, connecting one leg to the LED's cathode and the other leg to GND.</li>
+                                </ol>
+                                <p>Your set up should look like this:</p>
+                                <center><p><img src="https://64.media.tumblr.com/0adf6a257c57e9a13f55d37fb759aaae/28202011662d9329-dd/s540x810/90ab14bd3e1dae49b4035c7f9f42bc240b0d1bf8.pnj" style="max-width:40%"></li></center></p>
+                                <p>You can then access the "code" tab and input this code for the sequence to work. </br> The diagram below shoewcases the code and how each component of it works:</p>
+                                <center><p><img src="https://64.media.tumblr.com/ce0fa8724df82bd627756a4a359a1e9e/e1c656812c814ddd-93/s540x810/53f5a360e85dfa33ee7373c32e384aaef98a9765.pnj" style="max-width:100%"></li></center></p>
+                               <p>This is how the task should look if carried out correctly:</p>
+                               <center> <div style="max-width: 50%; margin: 0 auto;">
+                                    <video controls style="width: 90%;">
+                                      <source src="https://va.media.tumblr.com/tumblr_rxpj7oOWeL1a4tpxp.mp4" type="video/mp4">
+                                    </video></center>  
+                                  </div>
+                                <p>
+                                <center><p>Here is the link to the TinkerCad file so you can check it out!
+                                <P><a href="https://www.tinkercad.com/things/j5qY88ilQh9?sharecode=xHm__JpKFgIyxVJ8zA_6TJv2udlCyj0JUEPTzbt41Sg"><img src="https://64.media.tumblr.com/e6b177e6838d3e4278e458876ea1c181/1ad70df19342c412-48/s500x750/1094944abc3ad79fa326aa5067a38bc5123f59b0.gifv" style="max-width:40%"></a></p></center>
+                                    <h1>Task 3:</h1>
+                                    <mark style="background-color: rgb(237, 255, 235); color: black;">Add a switch to the circuit in Task 1. (You should use a pull-up resistor of 10K if you are operating in INPUT mode.)
+                                    Write a code so that when the switch is pressed, the LEDs will light up. Pressing the switch again will turn the LEDs off.
+                                </p></mark>
+                                <p>Follow these steps to set up the components:</p>
+
+                                <ol>
+                                  <li>Search for "LED" and drag three LED components onto the work area.</li>
+                                  <li>Search for "Switch" and drag it onto the work area.</li>
+                                </ol>
+                                
+                                <p>Connect the components as follows:</p>
+                                
+                                <h3>LED Connections:</h3>
+                                <ol>
+                                  <li>Connect the anode (longer leg) of the first LED to digital pin 6 on the Arduino Uno.</li>
+                                  <li>Connect the anode of the second LED to digital pin 7 on the Arduino Uno.</li>
+                                  <li>Connect the anode of the third LED to digital pin 8 on the Arduino Uno.</li>
+                                  <li>Connect the cathodes (shorter legs) of all three LEDs to the ground (GND) pin on the Arduino Uno.</li>
+                                  <li>Remember to add 220 Ohm Resistors between the LED cathodes and the GND pin like we did in Task 1 and 2.</li>
+                                </ol>
+                                
+                                <h3>Switch Connections:</h3>
+                                <ol>
+                                  <li>Connect one terminal of the slide switch to the GND pin.</li>
+                                  <li>Connect the common terminal of the slide switch to digital pin 2 on the Arduino Uno.</li>
+                                  <li>Connect the remaining terminal of the slide switch to the 5V pin.</li>
+                                  <li>Place a 10K resistor between the switch terminal connected to the 5V pin on the Arduino Uno. The 10k pull-up resistor and the 220 resistors help to maintain the current flowing through the LEDs at a suitable level.</li>
+                                </ol>
+                                <p>Your set up should look like this:</p>
+                                <center><p><img src="https://64.media.tumblr.com/f822548e9d4ca8da16de539fb97d9d28/30774da5afaaa3e8-e2/s540x810/00d93d431166f4d3411f7896f71442e87bb0c794.pnj" style="max-width:40%"></li></center></p>
+                                <p>You can then access the "code" tab and input this code for the sequence to work. </br> The diagram below shoewcases the code and how each component of it works:</p>
+                                <center><p><img src="https://64.media.tumblr.com/2aacf7ae2c871565374e7f92a2441bda/6830224289f82b70-5c/s540x810/c9b0cf6557d7d21f15844451b9540eafbfcfa24e.pnj" style="max-width:100%"></li></center></p>
+                               <p>This is how the task should look if carried out correctly:</p>
+                                <div style="max-width: 45%; margin: 0 auto;">
+                                    <video controls style="width: 100%;">
+                                      <source src="https://va.media.tumblr.com/tumblr_rxpsxmWxPM1a4tpxp.mp4" type="video/mp4">
+                                    </video>
+                                  </div>
+                                <p>
+                                <center><p>Here is the link to the TinkerCad file so you can check it out!
+                                <P><a href="https://www.tinkercad.com/things/fqGEpGizLEO?sharecode=Ydth9_Qou33wgTwFnxK-zKlv24fMIX6hXXfffwSkzaI"><img src="https://64.media.tumblr.com/eb192f2f50cb7c5e21e365a998c23980/1ad70df19342c412-fc/s500x750/1d5f77798b44359371cec095c77fa83414fa6f47.gifv" style="max-width:40%"></a></p></center>
+                                <p>
+                                    <h1>Task 4:</h1>
+                                    <mark style="background-color: rgb(237, 255, 235); color: black;">Use the switch in Task 3 to control the type of light-up and flashing of the LEDs, for example: </mark>
+                                    <ul><h5>
+                                        <li>Start with LEDs all in the OFF state.</li>
+                                        <li>Pressing the switch turns on only the RED LED.</li>
+                                        <li>Pressing the switch again turns on only the GREEN LED.</li>
+                                        <li>Pressing the switch again turns on only the BLUE LED.</li>
+                                        <li>Pressing the switch again turns on all LEDs.</li>
+                                        <li>Pressing the switch again turns off all LEDs, returning to the first state.</li></h5>
+                                    </ul>
+                                    <p>Connect the components as follows:</p>
+                                    <ol>
+                                        <h3>LED Connections:</h3>
+                                        <ol>
+                                          <li>Place the slide switch on the left side of the Arduino Uno.</li>
+                                          <li>
+                                            Now, search for "LED" and add three LEDs onto the workspace. Position them in a row to represent the red, green, and blue LEDs, respectively.
+                                          </li>
+                                          <li>
+                                            Connect the anode (longer leg) of each LED to a different digital pin on the Arduino Uno:
+                                            <ul>
+                                              <li>Connect the red LED to digital pin 9.</li>
+                                              <li>Connect the green LED to digital pin 10.</li>
+                                              <li>Connect the blue LED to digital pin 11.</li>
+                                            </ul>
+                                          </li>
+                                          <li>Connect the cathode (shorter leg) of each LED to a resistor (around 220 ohms) and the other end of each resistor to the ground (GND) pin on the Arduino Uno.</li>
+                                        </ol>
+                                        
+                                        <h3>Switch Connections:</h3>
+                                        <ol>
+                                          <li>Connect one terminal of the slide switch to the GND pin.</li>
+                                          <li>Connect the common terminal of the slide switch to digital pin 2 on the Arduino Uno.</li>
+                                          <li>Connect the remaining terminal of the slide switch to the 5V pin.</li>
+                                          <li>Place a 10K resistor between the switch terminal connected to the 5V pin on the Arduino Uno. The 10k pull-up resistor and the 220 resistors help to maintain the current flowing through the LEDs at a suitable level.</li>
+                                        </ol>
+                                        <p>Your set up should look like this:</p>
+                                        <center><p><img src="https://64.media.tumblr.com/5a27e26f067690cc4cf71e8ebdd28383/46f94079124cc986-88/s540x810/4a35bf2d0423753116e4f4144e8c2786e749cf84.pnj" style="max-width:40%"></li></center></p>
+                                        <p>You can then access the "code" tab and input this code for the sequence to work. </br> The diagram below shoewcases the code and how each component of it works:</p>
+                                        <center><p><img src="https://64.media.tumblr.com/43503dc9c204fa5443cf64e97da838a3/46f94079124cc986-b8/s540x810/70b49cbc007fee0b7eb6b7bf512f5ef89659661f.pnj" style="max-width:110%"></li></center></p>
+                                       <p>This is how the task should look if carried out correctly:</p>
+                                       
+                                        <div style="max-width: 50%; margin: 0 auto;">
+                                            <video controls style="width: 100%;">
+                                              <source src="https://va.media.tumblr.com/tumblr_rxpsu2Qc2H1a4tpxp_720.mp4" type="video/mp4">
+                                            </video>
+                                          </div>
+                                        <p>
+                                        <center><p>Here is the link to the TinkerCad file so you can check it out!
+                                        <P><a href="https://www.tinkercad.com/things/1FnAE9C5X6q?sharecode=85MuukcoSa1Q2quwRbJ-cRpZMKeVGM_kzXO0pmbdsBI"><img src="https://64.media.tumblr.com/83fbea5d26d566d18bd2f5c5e2dab2da/1ad70df19342c412-44/s500x750/1f1621c7203e5594993827eb87e6dd9c609d4e7b.gifv" style="max-width:40%"></a></p></center>
+                               </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>         
+    </div>
+</body>
+</html>  
