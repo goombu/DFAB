@@ -500,64 +500,58 @@ a{
                                                         <span class="highlight"><h2>Finalized Code</h2></span>
                                                         <p>Here's the final version of the code:</p>
                                                         <code>
-                                                            #include <Servo.h>
+                                                          Servo s1, s2, s3, s4;
 
-                                                                Servo s1, s2, s3, s4;
-                                                                
-                                                                const int joy1XPin = A1;
-                                                                const int joy1YPin = A0;
-                                                                const int joy2XPin = A3;
-                                                                const int joy2YPin = A2;
-                                                                
-                                                                const int servo1Pin = 6;
-                                                                const int servo2Pin = 9;
-                                                                const int servo3Pin = 10;
-                                                                const int servo4Pin = 11;
-                                                                
-                                                                int joy1XValue, joy1YValue, joy2XValue, joy2YValue;
-                                                                
-                                                                const int servoMinAngle = 0;
-                                                                const int servoMaxAngle = 180;
-                                                                
-                                                                  // Attach servos to their respective pins
-                                                                  s1.attach(servo1Pin);
-                                                                  s2.attach(servo2Pin);
-                                                                  s3.attach(servo3Pin);
-                                                                  s4.attach(servo4Pin);
-                                                                  
-                                                                  // Initialize serial communication for debugging
-                                                                  Serial.begin(9600);
-                                                                }
-                                                                
-                                                                void loop() {
-                                                                  // Read joystick values
-                                                                  joy1XValue = analogRead(joy1XPin);
-                                                                  joy1YValue = analogRead(joy1YPin);
-                                                                  joy2XValue = analogRead(joy2XPin);
-                                                                  joy2YValue = analogRead(joy2YPin);
-                                                                  
-                                                                  int servo1Angle = map(joy1XValue, 0, 1023, servoMinAngle, servoMaxAngle);
-                                                                  int servo2Angle = map(joy1YValue, 0, 1023, servoMinAngle, servoMaxAngle);
-                                                                  int servo3Angle = map(joy2XValue, 0, 1023, servoMinAngle, servoMaxAngle);
-                                                                  int servo4Angle = map(joy2YValue, 0, 1023, servoMinAngle, servoMaxAngle);
-                                                                  
-                                                                  s1.write(servo1Angle);
-                                                                  s2.write(servo2Angle);
-                                                                  s3.write(servo3Angle);
-                                                                  s4.write(servo4Angle);
-                                                                  
-                                                                  Serial.print("Joystick 1 X: ");
-                                                                  Serial.print(joy1XValue);
-                                                                  Serial.print("\tY: ");
-                                                                  Serial.print(joy1YValue);
-                                                                  Serial.print("\t\tJoystick 2 X: ");
-                                                                  Serial.print(joy2XValue);
-                                                                  Serial.print("\tY: ");
-                                                                  Serial.println(joy2YValue);
-                                                                
-                                                                  delay(20); // Add a small delay
-                                                                }
-                                                        </code>
+const int joy1XPin = A1;
+const int joy1YPin = A0;
+const int joy2XPin = A3;
+const int joy2YPin = A2;
+
+const int servo1Pin = 6;
+const int servo2Pin = 9;
+const int servo3Pin = 10;
+const int servo4Pin = 11;
+
+int joy1XValue, joy1YValue, joy2XValue, joy2YValue;
+
+const int servoMinAngle = 0;
+const int servoMaxAngle = 180;
+
+  s1.attach(servo1Pin);
+  s2.attach(servo2Pin);
+  s3.attach(servo3Pin);
+  s4.attach(servo4Pin);
+
+  Serial.begin(9600);
+}
+
+void loop() {
+  joy1XValue = analogRead(joy1XPin);
+  joy1YValue = analogRead(joy1YPin);
+  joy2XValue = analogRead(joy2XPin);
+  joy2YValue = analogRead(joy2YPin);
+  
+  int servo1Angle = map(joy1XValue, 0, 1023, servoMinAngle, servoMaxAngle);
+  int servo2Angle = map(joy1YValue, 0, 1023, servoMinAngle, servoMaxAngle);
+  int servo3Angle = map(joy2XValue, 0, 1023, servoMinAngle, servoMaxAngle);
+  int servo4Angle = map(joy2YValue, 0, 1023, servoMinAngle, servoMaxAngle);
+  
+  s1.write(servo1Angle);
+  s2.write(servo2Angle);
+  s3.write(servo3Angle);
+  s4.write(servo4Angle);
+
+  Serial.print("Joystick 1 X: ");
+  Serial.print(joy1XValue);
+  Serial.print("\tY: ");
+  Serial.print(joy1YValue);
+  Serial.print("\t\tJoystick 2 X: ");
+  Serial.print(joy2XValue);
+  Serial.print("\tY: ");
+  Serial.println(joy2YValue);
+
+  delay(20); 
+}
                                                     
                                                         <p>This code successfully controls the robotic arm's actions according to joystick inputs.</p>
                                                     </body>
